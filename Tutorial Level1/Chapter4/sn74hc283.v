@@ -1,15 +1,19 @@
-/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> COPYRIGHT NOTICE <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-File name: sn74hc283
-Module Function: 4-bit Binary Full Adder
+/*--------------------------------------------------------------------------------------------------- 	
+*- File name: 			sn74hc283.v
+*- Top Module name: 	sn74hc283
+  - Submodules:		N/A
+*- Description:			Implement the logic functions of a 4-bit Binary Full Adder
+*- 
+*- Example of Usage:
+	You can assign the input and output pins of this module to the GPIOs of the STEPFPGA board
+	To observe the logic behavior, you may need additional components such as swiches, pushbuottons
+	LEDs, resistors...and build the circuit on a breadboard or other medias. 
+	
+*- This code is for educational purposes only and hold no reliability for any industrial/commerical usages
 
-This code implement the logic functions of a 74xx IC on STEPFPGA board using Verilog. The Pin# in the code 
-match to the Pin definitions specified in Texas Instrument datasheet for corresponding 74xx chips.
+*- Copyright of this code: MIT License
+--------------------------------------------------------------------------------------------------- */
 
-This example code can also be found in Chapter 4 of the STEPFPGA tutorial book written by EIM Technology.
-Website: www.eimtechnology.com
-
-Copyright License: MIT
-*/
 
 module sn74hcf283 (pin1,pin2,pin3,pin4,pin5,pin6,pin7,pin8,
 pin9,pin10,pin11,pin12,pin13,pin14,pin15,pin16);

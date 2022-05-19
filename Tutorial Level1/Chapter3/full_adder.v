@@ -1,13 +1,17 @@
-/* 	
-File name: full_adder
-Module Function: Implementation of a 1-bit full adder
-
-This code implements 1-bit full adder using dataflow method.
-This code can also be found in Chapter 3 of the STEPFPGA tutorial book written by EIM Technology.
-Website: www.eimtechnology.com
-
-Copyright License: MIT
-*/
+/*--------------------------------------------------------------------------------------------------- 	
+*- File name: 			full_adder.v
+*- Top Module name: 	full_adder
+  - Submodules:		N/A
+*- Description:			Implementation of a 1-bit Full Binary Adder
+*- 
+*- Example of Usage:
+	You can implement this code on all variants of STEPFPGA family boards. 
+	If you want to implement this code on board and observe the logic behaviors: 
+		- assign a, b, cin to 3 on-board switches
+		- assign sum, co to any 2 on-board LEDs
+		
+*- Copyright of this code: MIT License
+--------------------------------------------------------------------------------------------------- */
 
 module full_adder (
    input wire a,           
@@ -16,6 +20,6 @@ module full_adder (
    output wire sum,         
    output wire co
 ); 
-   assign sum = a^b^cin;
-   assign co = ((a^b)&cin)|(a&b);
+   assign sum = a ^ b ^ cin;		// dataflow description manner
+   assign co = ((a^b)&cin)|(a&b);	// Use mathematical operators
 endmodule

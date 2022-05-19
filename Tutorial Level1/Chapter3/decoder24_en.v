@@ -1,12 +1,18 @@
-/* 	
-File name: decoder24_en
-Module Function: Implementation of a 2-4 decoder module with Enable
+/*--------------------------------------------------------------------------------------------------- 	
+*- File name: 			decoder24_en.v
+*- Top Module name: 	decoder24_en
+  - Submodules:		N/A
+*- Description:			Implementation of a 2-4 decoder module with Enable
+*- 
+*- Example of Usage:
+	You can implement this code on all variants of STEPFPGA family boards. 
+	If you want to implement this code on board and observe the logic behaviors: 
+		- assign A[1] , A[0] to 2 on-board switches
+		- assign EN to 1 on-board switch
+		- assign Y[3]...Y[0] to 4 on-board LEDs 
 
-This example code can also be found in Chapter 3 of the STEPFPGA tutorial book written by EIM Technology.
-Website: www.eimtechnology.com
-
-Copyright License: MIT
-*/
+*- Copyright of this code: MIT License
+--------------------------------------------------------------------------------------------------- */
 
 module decoder24_en (
     input wire [1:0] A,			// 2 input data signal             

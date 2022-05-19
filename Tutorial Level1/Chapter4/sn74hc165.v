@@ -1,25 +1,28 @@
-/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> COPYRIGHT NOTICE <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-File name: sn74hc165
-Module Function: 8-bit Parallel-load Shift Registers
+/*--------------------------------------------------------------------------------------------------- 	
+*- File name: 			sn74hc165.v
+*- Top Module name: 	sn74hc165
+  - Submodules:		N/A
+*- Description:			Implement the logic functions of an 8-bit Parallel-load Shift Registers
+*- 
+*- Example of Usage:
+	You can assign the input and output pins of this module to the GPIOs of the STEPFPGA board
+	To observe the logic behavior, you may need additional components such as swiches, pushbuottons
+	LEDs, resistors...and build the circuit on a breadboard or other medias. 
+	
+*- This code is for educational purposes only and hold no reliability for any industrial/commerical usages
 
-This code implement the logic functions of a 74xx IC on STEPFPGA board using Verilog. The Pin# in the code 
-match to the Pin definitions specified in Texas Instrument datasheet for corresponding 74xx chips.
-
-This example code can also be found in Chapter 4 of the STEPFPGA tutorial book written by EIM Technology.
-Website: www.eimtechnology.com
-
-Copyright License: MIT
-*/
+*- Copyright of this code: MIT License
+--------------------------------------------------------------------------------------------------- */
 
 module sn74hc165 (pin1,pin2,pin3,pin4,pin5,pin6,pin7,pin8,
 				pin9,pin10,pin11,pin12,pin13,pin14,pin15,pin16);
 				
-input pin3,pin4,pin5,pin6,pin11,pin12,pin13,pin14;	//八位并行输入
-input pin2,pin15;									//时钟（两者相或运算）
-input pin1;					     		   			//寄存器加载使能
-input pin10;										//移位后末位补0还是补1
-output pin8,pin16;			       				 	//GND VCC				
-output pin7,pin9;									//Q和~Q
+input pin3,pin4,pin5,pin6,pin11,pin12,pin13,pin14;	
+input pin2,pin15;									
+input pin1;					     		   			
+input pin10;										
+output pin8,pin16;			       				 		
+output pin7,pin9;									
 
 wire   [7:0]  data;
 wire          clk,load,sel;

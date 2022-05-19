@@ -1,13 +1,17 @@
-/* 	
-File name: XOR3_1
-Module Function: Implementation of a 3 input XOR gate
+/*--------------------------------------------------------------------------------------------------- 	
+*- File name: 			XOR3_1.v
+*- Top Module name: 	XOR3_1
+  - Submodules:		xor (Verilog built-in primitive gates)
+*- Description:			Implementation of a 3 input XOR gate
+*- 
+*- Example of Usage:
+	You can implement this code on all variants of STEPFPGA family boards. 
+	If you want to implement this code on board and observe the logic behaviors: 
+		- assign A, B, C to 3 on-board switches
+		- assign Y to any on-board LEDs
 
-This code can also be found in Chapter 3 of the STEPFPGA tutorial book written by EIM Technology.
-Website: www.eimtechnology.com
-
-Copyright License: MIT
-*/
-
+*- Copyright of this code: MIT License
+--------------------------------------------------------------------------------------------------- */
 module XOR3_1 (       
     input wire  A,    
     input wire  B,    

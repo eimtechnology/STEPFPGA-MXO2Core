@@ -1,15 +1,24 @@
-/* 	
-File name: dff
-Module Function: Implementation of a 1-bit D Flip-Flop
+/*--------------------------------------------------------------------------------------------------- 	
+*- File name: 			dff.v
+*- Top Module name: 	dff
+  - Submodules:		N/A
+*- Description:			Implementation of a 1-bit D Flip-Flop
+*- 
+*- Example of Usage:
+	You can implement this code on all variants of STEPFPGA family boards. 
+	If you want to implement this code on board and observe the logic behaviors: 
+		- assign clk to PCLK signal (12MHz)
+		- assign D to any on-board switches
+		- assign Q to any on-board LEDs 
+		
+*- Copyright of this code: MIT License
+--------------------------------------------------------------------------------------------------- */
 
-This code implement the logic functions of a D Flip-Flop on STEPFPGA board using Verilog.
-This example code can also be found in Chapter 3 of the STEPFPGA tutorial book written by EIM Technology.
-Website: www.eimtechnology.com
-
-Copyright License: MIT
-*/
-
-module dff(input clk, D, output reg Q);
+module dff(
+	input clk, 
+	input D, 
+	output reg Q
+);
     always @ (posedge clk) begin
         Q <= D;
     end

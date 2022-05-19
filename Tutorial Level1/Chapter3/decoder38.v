@@ -1,12 +1,17 @@
-/* 	
-File name: decoder38
-Module Function: Implementation of a 3-8 decoder module
-
-This example code can also be found in Chapter 3 of the STEPFPGA tutorial book written by EIM Technology.
-Website: www.eimtechnology.com
-
-Copyright License: MIT
-*/
+/*--------------------------------------------------------------------------------------------------- 	
+*- File name: 			decoder38.v
+*- Top Module name: 	decoder38
+  - Submodules:		decoder24_en upper
+*- Description:			Implementation of a 3-8 decoder module
+*- 
+*- Example of Usage:
+	You can implement this code on all variants of STEPFPGA family boards. 
+	If you want to implement this code on board and observe the logic behaviors: 
+		- assign X[2] ... X[0] to 3 on-board switches
+		- assign D[7] ... D[0] to 8 on-board LEDs 
+		
+*- Copyright of this code: MIT License
+--------------------------------------------------------------------------------------------------- */
 
 //This decoder 38 module is built by instantiate TWO 2-4 decoders
 module decoder38 (
@@ -20,7 +25,7 @@ decoder24_en upper (
       .A   (X[1: 0]),      	// connect wires to the submodules
       .EN  (X[2]),         
       .Y   (D[7: 4])       
-); 
+);
 
 // Submodule 2
 // Instantiate the second 2-4 decoder  (with Enable)

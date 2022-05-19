@@ -1,21 +1,22 @@
-/* 	
-File name: segment7
-Module Function: Implementation of a 7-segment display driver
+/*--------------------------------------------------------------------------------------------------- 	
+*- File name: 			segment7.v
+*- Top Module name: 	segment7
+  - Submodules:		N/A
+*- Description:			Implementation of a 7-segment display driver (common cathod)
+*- 
+*- Example of Usage:
+	You can implement this code on all variants of STEPFPGA family boards. 
+	If you want to implement this code on board and observe the logic behaviors: 
+		- assign seg_data[3]...seg_data[0] to the 4 on-board swiches
+		- assign segment_led[8] to SEG, segment_led[7] to DP
+		- assign segment_led[6]...segment_led[0] to 'g, f, ... a' accordingly
 
-This code implements a 7-segment display driver.
-This code can also be found in Chapter 3 of the STEPFPGA tutorial book written by EIM Technology.
-Website: www.eimtechnology.com
+* - Additional comments: 	 
+   If you want to display decimal numbers only, the 4-bit input data must be in BCD converted
+   form; will explain in Chapter 5 when implement the Elevator project. 
 
-Copyright License: MIT
-*/
-
-/* Option 1: if you want to manually display a number from 0 to F, you can connect the 4 input wires to four switches */
-
-/* Option 2: if you want to display a hex data on 7-segment which was sent out from other modules, you can connect the 
-4 bit output data from that module directly to the 4 bit inputs of the segment7 */
-
-/* Option 3: if if you want to display a decimal data on 7-segment sent out from other modules, you  need to use Binary to
-BCD converter first, then connect the 4 bit data to this module's inputs.  */
+*- Copyright of this code: MIT License
+--------------------------------------------------------------------------------------------------- */
 
 module segment7 (
     input  wire [3:0] seg_data,       // The 4 bit input data in binary form	
