@@ -11,3 +11,5 @@ Nevertheless, if you are totally new to FPGA, all these stuff still make no sens
 Enjoy a pleasant FPGA journey with this simple but power board, and of course, the tutorial and kits.
 
 EIM Technology
+
+EIM
