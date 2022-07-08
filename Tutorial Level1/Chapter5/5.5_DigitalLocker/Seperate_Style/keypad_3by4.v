@@ -11,12 +11,12 @@ Copyright License: MIT
 module keypad_3by4 (
 	input					clk,		
 	input					rst_n,		
-	input			[2:0]	col,		// the 3 input signals for 3 Columns 
-	output	reg		[3:0]	row,		// the 4 output signals for 4 Rows 
-	output	reg		[3:0]	keyPressed
+	input			[2:0]	col,		// the 3 output signals for 3 Columns 
+	output	reg		[3:0]	row,		// the 4 input signals for 4 Rows 
+	output	reg		[3:0]	keyPressed,
 	
-	// output	reg		[8:0]	seg_led_1,
-	// output	reg		[8:0]	seg_led_2
+	 output	reg		[8:0]	seg_led_1,
+	 output	reg		[8:0]	seg_led_2
 );
 
 	localparam			NUM_FOR_200HZ = 60000;	// Used to generate a 200Hz frequency for column scanning
@@ -130,5 +130,24 @@ end
 always@(posedge clk or  negedge rst_n)begin
 	if(!rst_n) 	keyPressed <= 4'd15;
 	else			keyPressed<=key_code;
+end 
+
+	
+always@(posedge clk)begin
+	case(keyPressed)
+	4'd0: begin seg_led_1<=9'h3f;			seg_led_2<=9'h3f;	end 
+	4'd1: begin seg_led_1<=9'h06;			seg_led_2<=9'h06;	end 
+	4'd2: begin seg_led_1<=9'h5b;			seg_led_2<=9'h5b;	end
+	4'd3: begin seg_led_1<=9'h4f;			seg_led_2<=9'h4f;	end
+	4'd4: begin seg_led_1<=9'h66;			seg_led_2<=9'h66;	end
+	4'd5: begin seg_led_1<=9'h6d;			seg_led_2<=9'h6d;	end
+	4'd6: begin seg_led_1<=9'h7d;			seg_led_2<=9'h7d;	end 
+	4'd7: begin seg_led_1<=9'h07;			seg_led_2<=9'h07;	end
+	4'd8: begin seg_led_1<=9'h7f;			seg_led_2<=9'h7f;	end
+	4'd9: begin seg_led_1<=9'h6f;			seg_led_2<=9'h6f;	end 
+	4'd10: begin seg_led_1<=9'h77;			seg_led_2<=9'h77;	end
+	4'd12: begin seg_led_1<=9'h39;			seg_led_2<=9'h39;	end	
+	default:begin seg_led_1<=seg_led_1;		seg_led_2<=seg_led_2;	end
+	endcase 
 end 
 endmodule
