@@ -3,16 +3,16 @@ module	DigitalLockerCtrl	(
 	output		[3:0]	row,	
 	input		[2:0]	col,
 	output		buzzer_out,
-	output		servo_pwm
+	output		servo_pwm,
 
 	/*** uncomment if you want to display the key on segment display*/
-	// output	wire	[8:0]	seg_led_1,
-	// output	wire	[8:0]	seg_led_2
+	 output	[8:0]	seg_led_1,
+	 output	[8:0]	seg_led_2
 );
 
 
 wire	[3:0]	keyUserInput;
-keypad_3by4	LockerKeyIn (clk, rst_n, col, row, keyUserInput);
+keypad_3by4	LockerKeyIn (clk, rst_n, col, row, keyUserInput, seg_led_1, seg_led_2);
 
 wire	pw_true, pw_false, timeout_flag;
 pwd_checker	#((28'd60000000),(16'h1234)) PWDcheck (clk, rst_n, keyUserInput, pw_true, pw_false, timeout_flag);
@@ -358,10 +358,10 @@ module keypad_3by4 (
 	input					rst_n,		
 	input			[2:0]	col,		// the 3 output signals for 3 Columns 
 	output	reg		[3:0]	row,		// the 4 input signals for 4 Rows 
-	output	reg		[3:0]	keyPressed
+	output	reg		[3:0]	keyPressed,
 	
-	// output	reg		[8:0]	seg_led_1,
-	// output	reg		[8:0]	seg_led_2
+	output	reg		[8:0]	seg_led_1,
+	output	reg		[8:0]	seg_led_2
 );
 
 	localparam			NUM_FOR_200HZ = 60000;	// Used to generate a 200Hz frequency for column scanning
@@ -417,25 +417,21 @@ always@(negedge clk_200hz or negedge rst_n) begin
 						key[2:0] <= col;    
 						key_r[2:0] <= key[2:0];    
 						key_out[2:0] <= key_r[2:0]|key[2:0];   // double comfirm the pressed key
-						
 					end 
 			ROW1_SCAN:begin 				// check for colum 3, 4, 5
 						key[5:3] <= col;    
 						key_r[5:3] <= key[5:3];    
-						key_out[5:3] <= key_r[5:3]|key[5:3];   // double comfirm the pressed key
-						
+						key_out[5:3] <= key_r[5:3]|key[5:3];   // double comfirm the pressed key	
 					end 
 			ROW2_SCAN:begin 
 						key[8:6] <= col;    // check for colum 6, 7, 8
 						key_r[8:6] <= key[8:6];   
-						key_out[8:6] <= key_r[8:6]|key[8:6];   // double comfirm the pressed key
-						
+						key_out[8:6] <= key_r[8:6]|key[8:6];   // double comfirm the pressed key		
 					end 
 			ROW3_SCAN:begin 
 						key[11:9] <= col;    // check for colum 9, 10, 11
 						key_r[11:9] <= key[11:9];    
 						key_out[11:9] <= key_r[11:9]|key[11:9]; // double comfirm the pressed key
-						
 					end 
 			default:key_out <= 12'hfff;
 		endcase
@@ -477,7 +473,7 @@ always@(posedge clk or  negedge rst_n)begin
 	else			keyPressed<=key_code;
 end 
 
-/*	
+	
 always@(posedge clk)begin
 	case(keyPressed)
 	4'd0: begin seg_led_1<=9'h3f;			seg_led_2<=9'h3f;end 
@@ -495,6 +491,6 @@ always@(posedge clk)begin
 	default:begin seg_led_1<=seg_led_1;		seg_led_2<=seg_led_2;end
 	endcase 
 end 
-*/
+
  
 endmodule
