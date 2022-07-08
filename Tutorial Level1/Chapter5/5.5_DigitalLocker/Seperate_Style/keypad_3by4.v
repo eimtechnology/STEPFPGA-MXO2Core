@@ -5,6 +5,7 @@ Module Function: Interfacing with a 3x4 matrix keypad
 This example code can also be found in Chapter 5 of the STEPFPGA tutorial book written by EIM Technology.
 Website: www.eimtechnology.com
 
+Note: You need to connect 3 PULL UP resistors at the 3 col pins (1k-10k)
 Copyright License: MIT
 */
 
