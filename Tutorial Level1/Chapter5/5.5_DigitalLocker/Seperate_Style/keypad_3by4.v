@@ -131,3 +131,4 @@ always@(posedge clk or  negedge rst_n)begin
 	if(!rst_n) 	keyPressed <= 4'd15;
 	else			keyPressed<=key_code;
 end 
+endmodule
