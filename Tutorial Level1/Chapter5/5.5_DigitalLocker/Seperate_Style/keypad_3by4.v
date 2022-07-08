@@ -11,8 +11,8 @@ Copyright License: MIT
 module keypad_3by4 (
 	input					clk,		
 	input					rst_n,		
-	input			[2:0]	col,		// the 3 output signals for 3 Columns 
-	output	reg		[3:0]	row,		// the 4 input signals for 4 Rows 
+	input			[2:0]	col,		// the 3 input signals for 3 Columns 
+	output	reg		[3:0]	row,		// the 4 output signals for 4 Rows 
 	output	reg		[3:0]	keyPressed
 	
 	// output	reg		[8:0]	seg_led_1,
