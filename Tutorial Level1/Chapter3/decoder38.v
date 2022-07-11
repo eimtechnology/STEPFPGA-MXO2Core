@@ -1,7 +1,7 @@
 /*--------------------------------------------------------------------------------------------------- 	
 *- File name: 			decoder38.v
-*- Top Module name: 	decoder38
-  - Submodules:		decoder24_en upper
+*- Top Module name: 		decoder38
+  - Submodules:			decoder24_en
 *- Description:			Implementation of a 3-8 decoder module
 *- 
 *- Example of Usage:
